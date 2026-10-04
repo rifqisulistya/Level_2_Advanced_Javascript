@@ -1,0 +1,112 @@
+/* ============================================================
+   JS FUNDAMENTALS — VARIABLES  |  Landing Page Styles
+   ============================================================
+   This stylesheet is provided for you.
+   You do not need to edit anything here.
+   All your work for this lesson happens in app.js.
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-page gradient background */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 24px;
+}
+
+/* Centered card */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 48px 56px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* "Lesson 01" pill */
+.badge {
+  display: inline-block;
+  background: rgba(99, 179, 237, 0.2);
+  color: #63b3ed;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(99, 179, 237, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Main heading */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+/* Subtitle paragraph */
+.subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.subtitle code {
+  background: rgba(99, 179, 237, 0.15);
+  color: #90cdf4;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+/* Horizontal rule */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #63b3ed, #9f7aea);
+  border-radius: 999px;
+  margin: 0 auto 28px auto;
+}
+
+/* DevTools instruction */
+.instruction {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+}
+
+.instruction strong {
+  color: #ffffff;
+}
+
+/* Keyboard shortcut line */
+.shortcut {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.shortcut code {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+}

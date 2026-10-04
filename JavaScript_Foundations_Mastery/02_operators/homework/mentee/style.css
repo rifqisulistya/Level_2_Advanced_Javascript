@@ -1,0 +1,104 @@
+/* ============================================================
+   JS FUNDAMENTALS — OPERATORS  |  Landing Page Styles
+   ============================================================
+   This stylesheet is provided for you.
+   You do not need to edit anything here.
+   All your work for this lesson happens in app.js.
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 50%, #0f4020 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 48px 56px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(104, 211, 145, 0.2);
+  color: #68d391;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(104, 211, 145, 0.3);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.subtitle code {
+  background: rgba(104, 211, 145, 0.15);
+  color: #9ae6b4;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #68d391, #f6e05e);
+  border-radius: 999px;
+  margin: 0 auto 28px auto;
+}
+
+.instruction {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+}
+
+.instruction strong {
+  color: #ffffff;
+}
+
+.shortcut {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.shortcut code {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+}

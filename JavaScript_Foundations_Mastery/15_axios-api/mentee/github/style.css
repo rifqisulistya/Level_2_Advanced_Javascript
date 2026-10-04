@@ -1,0 +1,283 @@
+/* ============================================================
+   GITHUB PORTFOLIO CHECKER  |  Styles
+   ============================================================
+   Provided for you — no edits needed. Minimal dark UI: one
+   accent color, grayscale everywhere else. Not trying to look
+   like GitHub — just clean.
+
+   Classes your JS will use:
+     #profile-card (the container)  → createProfileCard() renders into it
+     .repo-row                      → createRepoRow()
+       .lang-dot (background set inline from LANG_COLORS)
+       .warn-badge
+     .report / .check-item pass|fail / .verdict ready|not-ready
+     .status  + loading|error|success
+   ============================================================ */
+
+:root {
+  --canvas: #0a0a0a;
+  --panel: #141414;
+  --border: rgba(255, 255, 255, 0.1);
+  --ink: #f5f5f5;
+  --muted: #a3a3a3;
+  --accent: #14b8a6;
+  --accent-soft: rgba(20, 184, 166, 0.15);
+  --accent-ink: #022c22;
+  --red: #f87171;
+  --red-soft: rgba(248, 113, 113, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  padding: 12px clamp(16px, 4vw, 32px);
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.back {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.back:hover { color: var(--accent); }
+
+.request-line {
+  flex: 1 1 200px;
+  min-width: 0;
+  font-family: ui-monospace, "SF Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+.tool-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  background: var(--canvas);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.wrap {
+  flex: 1;
+  width: 100%;
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 28px clamp(16px, 4vw, 32px) 40px;
+}
+
+h1 { font-size: 1.6rem; font-weight: 500; }
+
+.lede { color: var(--muted); margin: 6px 0 20px; font-size: 0.95rem; }
+
+.search-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+input {
+  flex: 1 1 160px;
+  min-width: 0;
+  font: inherit;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+input::placeholder { color: var(--muted); }
+
+input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.btn-primary {
+  font: inherit;
+  font-weight: 500;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-primary:hover { filter: brightness(1.1); }
+
+.status { min-height: 1.4em; margin: 12px 0 4px; font-size: 0.85rem; color: var(--muted); }
+.status.error   { color: var(--red); }
+.status.success { color: var(--accent); }
+
+.columns {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  margin-top: 18px;
+  align-items: start;
+}
+
+#profile-card { text-align: left; }
+
+#profile-card img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+#profile-card h3 { font-size: 1.35rem; font-weight: 500; margin-top: 14px; }
+
+#profile-card .login { color: var(--muted); font-weight: 400; font-size: 1.05rem; }
+
+#profile-card .bio { margin: 10px 0; font-size: 0.9rem; line-height: 1.5; }
+
+#profile-card .stats {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#profile-card .stats strong { color: var(--ink); }
+
+.counter {
+  display: inline-block;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+.report {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.report h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.check-item {
+  font-size: 0.85rem;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+
+.check-item.pass { color: var(--accent); }
+.check-item.fail { color: var(--red); }
+
+.verdict {
+  padding: 11px 14px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.verdict.ready     { background: var(--accent-soft); color: var(--accent); }
+.verdict.not-ready { background: var(--red-soft);    color: var(--red); }
+
+.repo-list { list-style: none; }
+
+.repo-row {
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.repo-row .repo-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.repo-row .repo-name {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.repo-row .desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 4px 0 8px;
+  max-width: 60ch;
+}
+
+.repo-row .meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.lang-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: -1px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.warn-badge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--red);
+  border: 1px solid var(--red-soft);
+  background: var(--red-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.foot {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 760px) {
+  .columns { grid-template-columns: 1fr; gap: 16px; }
+  #profile-card img { max-width: 110px; }
+}
+
+@media (max-width: 480px) {
+  .search-row button { width: 100%; }
+  .repo-row .repo-top { align-items: flex-start; }
+  .check-item, .verdict { font-size: 0.82rem; }
+}

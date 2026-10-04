@@ -1,0 +1,177 @@
+/* ============================================================
+   APIs — LIVE CLASS  |  Stylesheet
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* --- HEADER --- */
+.site-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px;
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+
+.site-header h1 { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; }
+
+.lesson-badge {
+  background-color: #0ea5e9;
+  color: #fff; font-size: 0.75rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 999px;
+}
+
+/* --- MAIN LAYOUT --- */
+.explorer-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+  height: calc(100vh - 57px - 80px);
+  overflow: hidden;
+}
+
+/* --- LEFT: REFERENCE PANEL --- */
+.reference-panel {
+  background-color: #1e293b;
+  border-right: 1px solid #334155;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 24px;
+}
+
+.ref-section h2 {
+  font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: #94a3b8; margin-bottom: 12px;
+}
+
+/* HTTP Methods grid */
+.method-grid {
+  display: grid; grid-template-columns: 70px 1fr;
+  gap: 6px; align-items: center;
+}
+
+.method {
+  display: inline-block; font-size: 0.7rem; font-weight: 800;
+  padding: 3px 8px; border-radius: 4px; text-align: center;
+  font-family: "Courier New", monospace; letter-spacing: 0.05em;
+}
+.method.get    { background-color: #14532d; color: #86efac; }
+.method.post   { background-color: #1e3a5f; color: #93c5fd; }
+.method.put    { background-color: #451a03; color: #fdba74; }
+.method.delete { background-color: #450a0a; color: #fca5a5; }
+
+.method-desc { font-size: 0.8rem; color: #94a3b8; }
+
+/* Status codes */
+.status-list { display: flex; flex-direction: column; gap: 5px; }
+.status {
+  font-size: 0.78rem; padding: 5px 10px; border-radius: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.status span { font-weight: 800; font-family: "Courier New", monospace; }
+.status.ok   { background-color: #14532d; color: #86efac; }
+.status.err  { background-color: #27272a; color: #94a3b8; }
+.status.err span { color: #fca5a5; }
+
+/* Code block */
+.code-block {
+  background-color: #0f172a; border: 1px solid #334155;
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 8px;
+}
+.code-block code {
+  font-family: "Courier New", monospace; font-size: 0.8rem;
+  color: #94a3b8; line-height: 1.8;
+}
+.code-block .hl { color: #86efac; font-weight: 700; }
+
+.ref-note { font-size: 0.78rem; color: #64748b; }
+.ref-note strong { color: #94a3b8; }
+
+/* API links */
+.api-links { display: flex; flex-direction: column; gap: 6px; }
+.api-links a {
+  font-size: 0.78rem; color: #38bdf8;
+  text-decoration: none; padding: 6px 10px;
+  background-color: #0f172a; border: 1px solid #334155;
+  border-radius: 6px; transition: border-color 0.15s;
+  word-break: break-all;
+}
+.api-links a:hover { border-color: #38bdf8; }
+
+/* --- RIGHT: EXPLORER PANEL --- */
+.explorer-panel {
+  display: flex; flex-direction: column;
+  background-color: #0f172a;
+  overflow: hidden;
+}
+
+.explorer-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #334155;
+}
+.explorer-header h2 { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 4px; }
+.explorer-header p  { font-size: 0.8rem; color: #64748b; }
+
+.explorer-body {
+  flex: 1; display: flex; flex-direction: column;
+  padding: 16px 24px; gap: 12px; overflow: hidden;
+}
+
+#json-input {
+  flex: 1; resize: none; min-height: 180px;
+  background-color: #1e293b; border: 1px solid #334155;
+  border-radius: 8px; padding: 14px;
+  font-family: "Courier New", monospace; font-size: 0.8rem;
+  color: #e2e8f0; line-height: 1.6;
+  transition: border-color 0.2s;
+}
+#json-input:focus { outline: none; border-color: #0ea5e9; }
+
+.explorer-actions { display: flex; gap: 8px; }
+
+.explorer-actions button {
+  padding: 8px 18px; border: none; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  transition: background-color 0.15s;
+}
+#parse-btn  { background-color: #0ea5e9; color: #fff; }
+#parse-btn:hover  { background-color: #0284c7; }
+#clear-btn  { background-color: #334155; color: #e2e8f0; }
+#clear-btn:hover  { background-color: #475569; }
+
+.output-panel {
+  flex: 1; background-color: #1e293b; border: 1px solid #334155;
+  border-radius: 8px; padding: 14px; overflow-y: auto;
+  font-family: "Courier New", monospace; font-size: 0.78rem;
+  line-height: 1.6; min-height: 120px;
+}
+.output-placeholder { color: #475569; font-style: italic; font-family: inherit; }
+.output-key   { color: #93c5fd; }
+.output-str   { color: #86efac; }
+.output-num   { color: #fdba74; }
+.output-bool  { color: #f472b6; }
+.output-null  { color: #94a3b8; }
+.output-error { color: #fca5a5; font-weight: 700; }
+
+/* --- TASKS SECTION --- */
+.tasks-section {
+  padding: 16px 32px;
+  background-color: #1e293b;
+  border-top: 1px solid #334155;
+  height: 80px;
+  display: flex; align-items: center; gap: 16px;
+}
+.tasks-section h2 { font-size: 0.875rem; font-weight: 700; color: #f1f5f9; }
+.tasks-section p   { font-size: 0.8rem; color: #64748b; }
+
+@media (max-width: 768px) {
+  .explorer-layout { grid-template-columns: 1fr; height: auto; }
+  .reference-panel { border-right: none; border-bottom: 1px solid #334155; }
+}

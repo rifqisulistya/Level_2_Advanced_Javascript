@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axios — Practice Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #101418;
+      color: #e6edf3;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      padding: 40px 20px 32px;
+    }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.5px; text-align: center; }
+    .sub { color: #8b949e; margin: 10px 0 28px; text-align: center; max-width: 60ch; line-height: 1.6; }
+    .sub code { color: #58a6ff; }
+    .live-note {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #101418;
+      background: #f0b429;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 26px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 820px;
+    }
+    a.tile {
+      display: block;
+      text-decoration: none;
+      border-radius: 16px;
+      padding: 24px 22px;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease;
+      min-width: 0;
+    }
+    a.tile:hover { transform: translateY(-4px); }
+    .tile .emoji { font-size: 1.8rem; }
+    .tile h2 { font-size: 1.1rem; margin: 8px 0 6px; }
+    .tile p { font-size: 0.84rem; line-height: 1.5; }
+    .tile .go { display: inline-block; margin-top: 12px; font-weight: 700; font-size: 0.82rem; }
+    .tile .flag {
+      float: right;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .gh { background: #0d1117; border-color: #30363d; }
+    .gh p { color: #8b949e; }
+    .gh .go { color: #58a6ff; }
+    .gh .flag { background: #1c3a5e; color: #58a6ff; }
+    .gh:hover { border-color: #58a6ff; }
+
+    .concepts { background: #f6f5fb; color: #26243d; border-color: #e3e1f0; }
+    .concepts p { color: #8a86a8; }
+    .concepts .go { color: #4f46e5; }
+    .concepts .flag { background: #e0defc; color: #4f46e5; }
+    .concepts:hover { border-color: #4f46e5; }
+
+    .palette { background: #fafafa; color: #18181b; border-color: #e5e5e5; }
+    .palette p { color: #71717a; }
+    .palette .go { color: #7c3aed; }
+    .palette .flag { background: #ede4fd; color: #7c3aed; }
+    .palette:hover { border-color: #7c3aed; }
+
+    .podcasts { background: #fdf8f3; color: #2c231b; border-color: #eee0d3; }
+    .podcasts p { color: #8c7d6c; }
+    .podcasts .go { color: #c2540f; }
+    .podcasts .flag { background: #fbe8d9; color: #c2540f; }
+    .podcasts:hover { border-color: #c2540f; }
+
+    .badge {
+      margin-top: 26px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>⚡ Axios Practice Dashboard</h1>
+  <p class="sub">The same four mini-projects, rebuilt with <code>async/await</code>. Compare each app.js with your fetch version — that's the lesson.</p>
+  <span class="live-note">📚 Code Concepts is the live-class project</span>
+
+  <div class="grid">
+    <a class="tile gh" href="github/index.html">
+      <span class="flag">core</span>
+      <span class="emoji">🐙</span>
+      <h2>GitHub Portfolio Checker</h2>
+      <p>Look up your own profile. Get a GitHub-styled report: is your portfolio recruiter-ready?</p>
+      <span class="go">Open →</span>
+    </a>
+
+    <a class="tile concepts" href="concepts/index.html">
+      <span class="flag">live class</span>
+      <span class="emoji">📚</span>
+      <h2>Code Concepts</h2>
+      <p>Search a concept, get a plain summary AND real GitHub code, build a tracked learning list.</p>
+      <span class="go">Open →</span>
+    </a>
+
+    <a class="tile palette" href="palette/index.html">
+      <span class="flag">homework</span>
+      <span class="emoji">🎨</span>
+      <h2>Palette Builder</h2>
+      <p>Generate a color scheme and check every swatch against real WCAG accessibility contrast rules.</p>
+      <span class="go">Open →</span>
+    </a>
+
+    <a class="tile podcasts" href="podcasts/index.html">
+      <span class="flag">homework</span>
+      <span class="emoji">🎧</span>
+      <h2>Podcast Queue</h2>
+      <p>Search real shows, build a listening queue, add personal notes, and mark shows completed.</p>
+      <span class="go">Open →</span>
+    </a>
+  </div>
+
+  <span class="badge">axios + async/await</span>
+</body>
+</html>

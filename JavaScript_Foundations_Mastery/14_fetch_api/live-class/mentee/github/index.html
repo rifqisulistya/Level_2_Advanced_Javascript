@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Portfolio Checker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!--
+  ============================================================
+  🐙  GITHUB PORTFOLIO CHECKER
+  ============================================================
+  Look up any GitHub username (start with your own!) and get:
+    - A profile card, GitHub-style
+    - The 10 most recently updated repos with language dots
+    - A "checks" report: is this portfolio ready?
+
+  All your work happens in app.js.
+
+  🔒 SECURITY RULE: never put a personal access token (or any
+  API key) in frontend JavaScript — anyone can read it in
+  DevTools. Everything here works WITHOUT one.
+  GitHub allows 60 unauthenticated requests/hour per IP.
+  ============================================================
+-->
+<body>
+  <header class="topbar">
+    <a class="back" href="../index.html">← Practice Lab</a>
+    <span class="request-line">GET api.github.com/users/{username}</span>
+    <span class="tool-badge">fetch + .then</span>
+  </header>
+
+  <main class="wrap">
+    <h1>Portfolio Checker</h1>
+    <p class="lede">Is your GitHub profile ready to show a recruiter? Look yourself up and find out.</p>
+
+    <form id="github-form" class="search-row">
+      <input
+        type="text"
+        id="username-input"
+        placeholder="Your GitHub username…"
+        autocomplete="off"
+      />
+      <button type="submit" class="btn-primary">Check profile</button>
+    </form>
+
+    <p id="github-status" class="status"></p>
+
+    <div class="columns">
+      <aside id="profile-card" class="profile-col"></aside>
+
+      <section class="repos-col">
+        <div id="portfolio-report"></div>
+        <ul id="repo-list" class="repo-list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    🔒 No tokens in frontend JS — ever. This page runs unauthenticated (60 requests/hour per IP).
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

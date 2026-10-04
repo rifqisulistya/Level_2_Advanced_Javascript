@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage — Live Class</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🏗️  PAGE STRUCTURE
+  ============================================================
+  This is the Profile Page from DOM Manipulation and
+  Event Listeners — now with data persistence.
+
+  After this lesson, refreshing the page will no longer
+  wipe everything the user did. Their bio, skills, and
+  dark mode preference will survive a browser refresh.
+  ============================================================
+  -->
+
+  <body>
+    <header class="site-header">
+      <h1 id="page-title">Alex's Dev Profile</h1>
+      <div class="header-actions">
+        <button id="theme-btn">🌙 Dark Mode</button>
+        <!-- Save and Clear buttons — wired up in app.js -->
+        <button id="save-btn" class="btn-save">💾 Save</button>
+        <button id="clear-btn" class="btn-clear">🗑️ Clear Data</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="profile-card">
+        <div class="avatar" id="avatar">AR</div>
+        <h2 id="user-name">Alex Rivera</h2>
+        <p id="user-title">Full Stack Developer</p>
+        <p id="user-location">📍 Austin, TX</p>
+        <span id="status-badge" class="badge active">🟢 Active</span>
+
+        <div class="field-group">
+          <label for="status-select">Status:</label>
+          <select id="status-select">
+            <option value="active">🟢 Active</option>
+            <option value="away">🟡 Away</option>
+            <option value="offline">🔴 Offline</option>
+          </select>
+        </div>
+
+        <!-- Storage info panel — JS updates this -->
+        <div class="storage-info" id="storage-info">
+          <p id="storage-status">💾 Not saved yet</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="section-block">
+          <h3>About</h3>
+          <textarea
+            id="bio-input"
+            maxlength="200"
+            placeholder="Write a short bio..."
+          >
+Passionate developer with 4 years of experience building web apps.</textarea
+          >
+          <p id="char-count" class="char-count">0 / 200</p>
+        </div>
+
+        <div class="section-block">
+          <h3>Skills <span id="skill-count" class="count-pill">0</span></h3>
+          <ul id="skills-list"></ul>
+          <form id="add-skill-form" class="add-form">
+            <input
+              type="text"
+              id="skill-input"
+              placeholder="Add a skill..."
+              autocomplete="off"
+            />
+            <button type="submit">Add</button>
+          </form>
+          <p class="hint">💡 Click any skill to remove it</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

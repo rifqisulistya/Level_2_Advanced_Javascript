@@ -1,0 +1,346 @@
+/* ============================================================
+   EVENT LISTENERS — LIVE CLASS  |  Stylesheet
+   ============================================================
+   This CSS is provided. All your work happens in app.js.
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #2d3748;
+  min-height: 100vh;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+body.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+body.dark .profile-card,
+body.dark .section-block,
+body.dark .site-header {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: #4a5568;
+  color: #e2e8f0;
+  border-color: #718096;
+}
+
+/* --- HEADER --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.site-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#theme-btn {
+  background: none;
+  border: 1px solid #cbd5e0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+#theme-btn:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* --- LAYOUT --- */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+/* --- PROFILE CARD --- */
+.profile-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #4f46e5;
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.profile-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.profile-card p {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 4px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 10px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+.badge.active {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+.badge.away {
+  background-color: #fefcbf;
+  color: #744210;
+}
+.badge.offline {
+  background-color: #fed7d7;
+  color: #742a2a;
+}
+
+/* Status selector */
+.field-group {
+  margin-top: 16px;
+  text-align: left;
+}
+.field-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #718096;
+  display: block;
+  margin-bottom: 6px;
+}
+.field-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* --- CONTENT --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-block {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.section-block h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Count pill next to "Skills" heading */
+.count-pill {
+  background-color: #ebf4ff;
+  color: #2b6cb0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: none;
+}
+
+/* Bio textarea */
+#bio-input {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  resize: vertical;
+  color: inherit;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+#bio-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.char-count {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  text-align: right;
+  margin-top: 6px;
+}
+.char-count.warning {
+  color: #c05621;
+  font-weight: 600;
+}
+.char-count.limit {
+  color: #c53030;
+  font-weight: 700;
+}
+
+/* Skills list */
+#skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* Skill tag — click to remove */
+#skills-list li {
+  background-color: #ebf4ff;
+  color: #2b6cb0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    transform 0.1s;
+  user-select: none;
+}
+#skills-list li:hover {
+  background-color: #fed7d7;
+  color: #c53030;
+  transform: scale(1.04);
+}
+body.dark #skills-list li {
+  background-color: #2c5282;
+  color: #bee3f8;
+}
+body.dark #skills-list li:hover {
+  background-color: #742a2a;
+  color: #fed7d7;
+}
+
+/* Add skill form */
+.add-form {
+  display: flex;
+  gap: 8px;
+}
+.add-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  background-color: #fff;
+  color: inherit;
+}
+.add-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.add-form button {
+  padding: 8px 18px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.add-form button:hover {
+  background-color: #4338ca;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  margin-top: 8px;
+}
+
+/* Key output display */
+.key-output {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4f46e5;
+  font-family: "Courier New", Courier, monospace;
+  padding: 12px;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 48px;
+}
+body.dark .key-output {
+  background-color: #2d3748;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    position: static;
+  }
+}

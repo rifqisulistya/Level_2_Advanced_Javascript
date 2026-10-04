@@ -1,0 +1,182 @@
+/* ============================================================
+   PROPS + DESTRUCTURING — HOMEWORK  |  Styles
+   ============================================================
+   Provided — no edits needed. Every selector targets exactly
+   what app.js already creates. "#app > div" targets TeamList's
+   wrapper by its position in the DOM — no new classes needed.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --page-bg: #e4e2dc;
+  --content-bg: #f1efe9;
+  --ink: #18181a;
+  --muted: #6f6c62;
+  --dash: #b7b2a2;
+  --pill: #d9d5c8;
+  --pill-hover: #c8c3b2;
+  --photo-top: #6b7a70;
+  --photo-mid: #98a084;
+  --photo-bottom: #d8c7a1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--page-bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px clamp(20px, 5vw, 44px);
+  background: rgba(241, 239, 233, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--dash);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.badge {
+  font-family: "Space Mono", monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: var(--content-bg);
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--dash);
+}
+
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--photo-mid);
+}
+
+/* ---------- layout ---------- */
+#app {
+  padding: clamp(24px, 5vw, 44px);
+}
+
+/* the actual grid: TeamList's wrapper div, targeted by position */
+#app > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- the member card ---------- */
+.member-card {
+  position: relative;
+  background-color: var(--content-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 48px -16px rgba(24, 24, 26, 0.28),
+    0 4px 12px rgba(24, 24, 26, 0.08);
+  animation: card-in 0.35s ease both;
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.member-card .member-photo {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background-color: var(--photo-mid);
+}
+
+.member-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink);
+  margin: 22px 24px 0;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed var(--dash);
+}
+
+.member-card .member-role {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: var(--muted);
+  margin: 14px 24px 16px;
+}
+
+.member-card .member-bio {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 24px 24px;
+}
+
+.member-card button {
+  display: block;
+  margin: 0 24px 24px auto;
+  width: fit-content;
+  font-family: "Space Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink);
+  background-color: var(--pill);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+}
+
+.member-card button:hover {
+  background-color: var(--pill-hover);
+  transform: translateY(-1px);
+}
+
+.member-card button:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .member-card { animation: none; }
+  .member-card button { transition: none; }
+}

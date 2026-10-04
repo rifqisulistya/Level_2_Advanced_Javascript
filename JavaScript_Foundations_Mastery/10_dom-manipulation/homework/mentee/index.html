@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation — Task Board</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🏗️  TASK BOARD — PAGE STRUCTURE
+  ============================================================
+  You are building a Task Board.
+  JavaScript will render tasks from an array of objects,
+  mark them complete, and remove them.
+
+  Leave all dynamic content empty — JS fills it in.
+  ============================================================
+  -->
+
+  <body>
+    <!-- ✅ STEP 1 — HEADER
+         The <h1 id="board-title"> will be filled by JS.
+         The <span id="task-count"> will show the number of tasks. -->
+    <header class="board-header">
+      <div class="header-left">
+        <h1 id="board-title"></h1>
+        <span id="task-count" class="count-badge"></span>
+      </div>
+      <div class="header-right">
+        <!-- Summary stats — JS fills these in -->
+        <span id="completed-count" class="stat-pill completed">✅ 0 done</span>
+        <span id="pending-count" class="stat-pill pending">⏳ 0 pending</span>
+      </div>
+    </header>
+
+    <!-- ✅ STEP 2 — BOARD COLUMNS
+         Three columns: To Do, In Progress, Done
+         Each <ul> will receive task cards appended by JS. -->
+    <main class="board">
+      <div class="column" id="col-todo">
+        <h2 class="column-title">📋 To Do</h2>
+        <ul class="task-list" id="list-todo"></ul>
+      </div>
+
+      <div class="column" id="col-inprogress">
+        <h2 class="column-title">⚡ In Progress</h2>
+        <ul class="task-list" id="list-inprogress"></ul>
+      </div>
+
+      <div class="column" id="col-done">
+        <h2 class="column-title">✅ Done</h2>
+        <ul class="task-list" id="list-done"></ul>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

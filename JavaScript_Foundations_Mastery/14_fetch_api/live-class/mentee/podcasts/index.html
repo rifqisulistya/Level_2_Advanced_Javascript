@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podcast Queue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!--
+  ============================================================
+  🎧  PODCAST QUEUE
+  ============================================================
+  Search real podcasts, save shows to a personal listening
+  queue, add a note to each, and mark shows completed.
+  Saved on this device with localStorage.
+
+  All your work happens in app.js.
+  ============================================================
+-->
+<body>
+  <header class="topbar">
+    <a class="back" href="../index.html">← Dashboard</a>
+    <span class="request-line">GET itunes.apple.com/search?term=…&media=podcast</span>
+    <span class="tool-badge">fetch + .then</span>
+  </header>
+
+  <main class="wrap">
+    <h1>🎧 Podcast Queue</h1>
+    <p class="lede">Search any topic, save shows worth listening to, and keep notes on why.</p>
+
+    <form id="search-form" class="search-row">
+      <input type="text" id="search-input" placeholder="Try: true crime, history, comedy…" autocomplete="off" />
+      <button type="submit" class="btn-primary">Search</button>
+    </form>
+
+    <p id="search-status" class="status"></p>
+
+    <div class="explorer">
+      <section>
+        <h2 class="col-title">Results</h2>
+        <div id="results-grid" class="results-grid"></div>
+      </section>
+
+      <section>
+        <h2 class="col-title">🎧 My queue</h2>
+        <ul id="queue-list" class="queue-list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    🎧 Data by the iTunes Search API. No account, no key.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

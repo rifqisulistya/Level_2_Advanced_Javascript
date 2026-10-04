@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessible Palette Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!--
+  ============================================================
+  🎨  ACCESSIBLE PALETTE BUILDER
+  ============================================================
+  Pick a base color, generate a 5-color scheme, and check
+  WCAG text-contrast against black and white for every swatch.
+
+  All your work happens in app.js.
+  A WCAG contrast-ratio helper is PROVIDED for you — the math
+  is real accessibility law, not something to derive from
+  scratch. Using code you didn't write is a real skill too.
+  ============================================================
+-->
+<body>
+  <header class="topbar">
+    <a class="back" href="../index.html">← Dashboard</a>
+    <span class="request-line">GET www.thecolorapi.com/scheme?hex={hex}&mode=analogic</span>
+    <span class="tool-badge">fetch + .then</span>
+  </header>
+
+  <main class="wrap">
+    <h1>🎨 Palette Builder</h1>
+    <p class="lede">Pick a base color and get a full palette — plus an honest check of which colors are readable as text.</p>
+
+    <form id="palette-form" class="search-row">
+      <input type="color" id="color-picker" value="#4f46e5" />
+      <input type="text" id="hex-input" placeholder="#4F46E5" autocomplete="off" />
+      <button type="submit" class="btn-primary">Generate palette</button>
+    </form>
+
+    <p id="palette-status" class="status"></p>
+
+    <div id="swatch-grid" class="swatch-grid"></div>
+  </main>
+
+  <footer class="foot">
+    🎨 Palette by TheColorAPI · contrast math follows the WCAG 2.1 formula.
+  </footer>
+
+  <script src="contrast-helper.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

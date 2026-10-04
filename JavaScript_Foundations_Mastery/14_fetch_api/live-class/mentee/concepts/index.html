@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Concepts — Study Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!--
+  ============================================================
+  📚  CODE CONCEPTS — YOUR STUDY COMPANION
+  ============================================================
+  Type any programming concept ("recursion", "closures",
+  "REST API") and get:
+    - A plain-language summary from Wikipedia
+    - Top related repositories from GitHub
+    - A personal learning list with status tracking
+      (learning → practicing → understood), saved on this device
+
+  TWO APIs on one page — that's the new skill here.
+  All your work happens in app.js.
+  ============================================================
+-->
+<body>
+  <header class="topbar">
+    <a class="back" href="../index.html">← Dashboard</a>
+    <span class="request-line">GET en.wikipedia.org/api/rest_v1/page/summary/{concept}</span>
+    <span class="tool-badge">fetch + .then</span>
+  </header>
+
+  <main class="wrap">
+    <h1>📚 Code Concepts</h1>
+    <p class="lede">One search, two APIs: Wikipedia explains it, GitHub shows you real code using it. Save what you're studying and track your progress.</p>
+
+    <form id="concept-form" class="search-row">
+      <input
+        type="text"
+        id="concept-input"
+        placeholder="Try: recursion, closures, REST API…"
+        autocomplete="off"
+      />
+      <button type="submit" class="btn-primary">Look it up</button>
+    </form>
+
+    <p id="concept-status" class="status"></p>
+
+    <div class="results">
+      <section>
+        <h2 class="col-title">💡 The concept</h2>
+        <div id="concept-card"></div>
+        <h2 class="col-title">⭐ Real code on GitHub</h2>
+        <div id="repo-cards"></div>
+      </section>
+
+      <aside class="study-list">
+        <h2 class="col-title">🎯 My learning list</h2>
+        <p class="hint">Save the concept, or any repo below — both land here. ✓ marks it understood. ✕ removes it.</p>
+        <ul id="learning-list"></ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="foot">
+    📖 Wikipedia + 🐙 GitHub, unauthenticated. GitHub search allows ~10 requests/minute — search thoughtfully.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

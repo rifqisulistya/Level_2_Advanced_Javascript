@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Types — Live Class</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  📦  DATA TYPES — USER PROFILE FORMATTER
+  ============================================================
+  This lesson is console-based.
+  Open DevTools (F12 → Console) to see all your output.
+
+  The page is a visual reference while you work in app.js.
+  ============================================================
+  -->
+
+  <body>
+    <header class="site-header">
+      <h1>📦 Data Types</h1>
+      <span class="lesson-badge">Lesson 03</span>
+    </header>
+
+    <div class="ref-layout">
+      <!-- Types reference -->
+      <div class="ref-card">
+        <h2>Primitive Types</h2>
+        <div class="type-list">
+          <div class="type-row">
+            <span class="type-badge string">string</span>
+            <code>"hello" 'world' `template`</code>
+          </div>
+          <div class="type-row">
+            <span class="type-badge number">number</span>
+            <code>42 3.14 -7 Infinity NaN</code>
+          </div>
+          <div class="type-row">
+            <span class="type-badge boolean">boolean</span>
+            <code>true false</code>
+          </div>
+          <div class="type-row">
+            <span class="type-badge undefined">undefined</span>
+            <code>let x; → x is undefined</code>
+          </div>
+          <div class="type-row">
+            <span class="type-badge null">null</span>
+            <code>let x = null; → intentionally empty</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template literals reference -->
+      <div class="ref-card">
+        <h2>Template Literals</h2>
+        <div class="code-block">
+          <pre><code><span class="c">// Old way (string concatenation)</span>
+"Hello, " + name + "! You are " + age + "."
+
+<span class="c">// New way (template literal)</span>
+`Hello, ${name}! You are ${age}.`
+
+<span class="c">// Any expression works inside ${}</span>
+`Total: $${(price * qty).toFixed(2)}`
+`${isAdmin ? "Admin" : "User"}`
+
+<span class="c">// Multiline (no \n needed)</span>
+`Line one
+Line two
+Line three`</code></pre>
+        </div>
+      </div>
+
+      <!-- Falsy values reference -->
+      <div class="ref-card">
+        <h2>The 6 Falsy Values</h2>
+        <div class="falsy-grid">
+          <code>false</code>
+          <code>0</code>
+          <code>""</code>
+          <code>null</code>
+          <code>undefined</code>
+          <code>NaN</code>
+        </div>
+        <p class="ref-note">Everything else is truthy.</p>
+      </div>
+
+      <!-- typeof reference -->
+      <div class="ref-card">
+        <h2>typeof</h2>
+        <div class="code-block">
+          <pre><code>typeof "hello"    → "string"
+typeof 42         → "number"
+typeof true       → "boolean"
+typeof undefined  → "undefined"
+typeof null       → "object" ⚠️
+typeof {}         → "object"</code></pre>
+        </div>
+        <p class="ref-note">
+          ⚠️ <code>typeof null === "object"</code> is a historic JS bug.
+        </p>
+      </div>
+    </div>
+
+    <div class="console-reminder">
+      👉 Open <strong>DevTools Console</strong> to see your output.
+      &nbsp;&nbsp;Mac: <code>Cmd+Option+J</code> &nbsp;|&nbsp; Windows:
+      <code>F12</code>
+    </div>
+
+    <script src="debug.js"></script>
+  </body>
+</html>

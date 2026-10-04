@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listeners — Live Class</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🏗️  PAGE STRUCTURE
+  ============================================================
+  This is the User Profile Page from DOM Manipulation —
+  now made fully interactive with Event Listeners.
+
+  The structure is already built. Your job in app.js:
+    - Wire up the dark mode toggle button
+    - Add skills via the input form
+    - Remove skills by clicking on them
+    - Show a live character count on the bio textarea
+    - Handle keyboard shortcuts
+  ============================================================
+  -->
+
+  <body>
+    <!-- HEADER with dark mode toggle -->
+    <header class="site-header">
+      <h1 id="page-title">Alex's Dev Profile</h1>
+      <!-- This button already existed in DOM Manipulation.
+           Now we'll wire it up with a click event listener. -->
+      <button id="theme-btn">🌙 Dark Mode</button>
+    </header>
+
+    <main class="layout">
+      <!-- PROFILE CARD — left column -->
+      <aside class="profile-card">
+        <div class="avatar" id="avatar">AR</div>
+        <h2 id="user-name">Alex Rivera</h2>
+        <p id="user-title">Full Stack Developer</p>
+        <p id="user-location">📍 Austin, TX</p>
+        <span id="status-badge" class="badge active">🟢 Active</span>
+
+        <!-- ✅ STATUS SELECTOR
+             A <select> dropdown — we'll listen for "change" events. -->
+        <div class="field-group">
+          <label for="status-select">Status:</label>
+          <select id="status-select">
+            <option value="active">🟢 Active</option>
+            <option value="away">🟡 Away</option>
+            <option value="offline">🔴 Offline</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- CONTENT — right column -->
+      <section class="content">
+        <!-- BIO section with live character count -->
+        <div class="section-block">
+          <h3>About</h3>
+          <!-- ✅ BIO TEXTAREA
+               We'll listen for "input" events to count characters live. -->
+          <textarea
+            id="bio-input"
+            maxlength="200"
+            placeholder="Write a short bio..."
+          >
+Passionate developer with 4 years of experience building web apps.</textarea
+          >
+          <p id="char-count" class="char-count">0 / 200</p>
+        </div>
+
+        <!-- SKILLS section with add form -->
+        <div class="section-block">
+          <h3>Skills <span id="skill-count" class="count-pill">0</span></h3>
+          <ul id="skills-list"></ul>
+
+          <!-- ✅ ADD SKILL FORM
+               We'll listen for "submit" to add skills.
+               We need event.preventDefault() to stop page reload. -->
+          <form id="add-skill-form" class="add-form">
+            <input
+              type="text"
+              id="skill-input"
+              placeholder="Add a skill..."
+              autocomplete="off"
+            />
+            <button type="submit">Add</button>
+          </form>
+          <p class="hint">💡 Click any skill to remove it</p>
+        </div>
+
+        <!-- KEYBOARD SHORTCUT DISPLAY -->
+        <div class="section-block" id="shortcut-display">
+          <h3>Last Key Pressed</h3>
+          <p id="key-output" class="key-output">— press any key —</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

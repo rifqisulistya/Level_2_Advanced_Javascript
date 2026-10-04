@@ -1,0 +1,126 @@
+/* ============================================================
+   DATA TYPES — LIVE CLASS  |  Stylesheet
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+.site-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 28px;
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+.site-header h1 { font-size: 1.1rem; font-weight: 800; color: #f1f5f9; }
+
+.lesson-badge {
+  background-color: #06b6d4;
+  color: #fff; font-size: 0.75rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 999px;
+}
+
+/* Reference card grid */
+.ref-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 24px 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ref-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.ref-card h2 {
+  font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: #64748b; margin-bottom: 14px;
+}
+
+/* Primitive types list */
+.type-list { display: flex; flex-direction: column; gap: 8px; }
+
+.type-row {
+  display: flex; align-items: center; gap: 10px;
+}
+
+.type-badge {
+  font-size: 0.7rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 999px;
+  min-width: 80px; text-align: center;
+  font-family: "Courier New", monospace;
+}
+.type-badge.string    { background-color: #14532d; color: #86efac; }
+.type-badge.number    { background-color: #1e3a5f; color: #93c5fd; }
+.type-badge.boolean   { background-color: #4a1d96; color: #c4b5fd; }
+.type-badge.undefined { background-color: #374151; color: #9ca3af; }
+.type-badge.null      { background-color: #431407; color: #fdba74; }
+
+.type-row code {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem; color: #94a3b8;
+}
+
+/* Code block */
+.code-block {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 14px;
+  overflow-x: auto;
+}
+.code-block pre { margin: 0; }
+.code-block code {
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem; color: #94a3b8;
+  line-height: 1.9; white-space: pre;
+}
+.code-block .c { color: #475569; }
+
+/* Falsy grid */
+.falsy-grid {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;
+}
+.falsy-grid code {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  padding: 5px 12px; border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem; color: #f87171;
+}
+
+.ref-note {
+  font-size: 0.75rem; color: #475569; margin-top: 8px; line-height: 1.5;
+}
+.ref-note code {
+  font-family: "Courier New", monospace;
+  background-color: #0f172a; padding: 1px 6px;
+  border-radius: 4px; color: #94a3b8;
+}
+
+/* Console reminder */
+.console-reminder {
+  text-align: center;
+  padding: 16px 28px;
+  font-size: 0.85rem; color: #475569;
+  border-top: 1px solid #1e293b;
+  margin-top: 4px;
+}
+.console-reminder strong { color: #94a3b8; }
+.console-reminder code {
+  background-color: #1e293b; border: 1px solid #334155;
+  padding: 2px 8px; border-radius: 4px;
+  font-family: "Courier New", monospace; font-size: 0.78rem;
+  color: #94a3b8;
+}

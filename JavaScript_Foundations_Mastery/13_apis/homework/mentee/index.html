@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APIs — Homework</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <header class="site-header">
+      <h1>🌐 APIs — Homework Reference</h1>
+      <span class="lesson-badge">Homework 12</span>
+    </header>
+
+    <div class="hw-layout">
+
+      <!-- Quick reference stays visible while working in app.js -->
+      <aside class="reference-panel">
+
+        <div class="ref-section">
+          <h2>APIs to Use</h2>
+          <div class="api-links">
+            <a href="https://jsonplaceholder.typicode.com/users" target="_blank">
+              /users (all) ↗
+            </a>
+            <a href="https://jsonplaceholder.typicode.com/users/1" target="_blank">
+              /users/1 ↗
+            </a>
+            <a href="https://jsonplaceholder.typicode.com/posts?userId=1" target="_blank">
+              /posts?userId=1 ↗
+            </a>
+            <a href="https://jsonplaceholder.typicode.com/todos?userId=1&completed=false" target="_blank">
+              /todos?userId=1&completed=false ↗
+            </a>
+            <a href="https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&current_weather=true" target="_blank">
+              Open-Meteo NYC ↗
+            </a>
+            <a href="https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&current_weather=true" target="_blank">
+              Open-Meteo London ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="ref-section">
+          <h2>URL Anatomy</h2>
+          <div class="url-anatomy">
+            <div class="url-line">
+              <span class="u-proto">https://</span><span class="u-domain">api.example.com</span><span class="u-path">/posts/1</span><span class="u-query">?limit=5&page=2</span>
+            </div>
+            <div class="url-labels">
+              <span class="u-proto-l">protocol</span>
+              <span class="u-domain-l">domain</span>
+              <span class="u-path-l">path</span>
+              <span class="u-query-l">query params</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-section">
+          <h2>JSON Cheat Sheet</h2>
+          <div class="code-block">
+            <code>
+              // String → Object<br>
+              JSON.parse(str)<br><br>
+              // Object → String<br>
+              JSON.stringify(obj)<br><br>
+              // Nested access<br>
+              data.user.address.city<br>
+              data.posts[0].title<br>
+              data.tags[2]
+            </code>
+          </div>
+        </div>
+
+        <div class="ref-section">
+          <h2>Status Families</h2>
+          <div class="status-list">
+            <div class="status ok"><span>2xx</span> Success</div>
+            <div class="status warn"><span>4xx</span> Client error (your fault)</div>
+            <div class="status err"><span>5xx</span> Server error (their fault)</div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main instructions -->
+      <main class="hw-main">
+        <div class="hw-intro">
+          <h2>About This Homework</h2>
+          <p>
+            All tasks are in <strong>app.js</strong>. Open this page in your browser,
+            keep it open alongside your code, and use the reference links on the left
+            to explore real API responses in the browser.
+          </p>
+          <p>Open <strong>DevTools → Console</strong> to see your output.</p>
+        </div>
+      </main>
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

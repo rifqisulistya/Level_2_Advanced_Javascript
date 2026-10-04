@@ -1,0 +1,191 @@
+/* ============================================================
+   PALETTE BUILDER  |  Styles
+   ============================================================
+   Provided for you — no edits needed.
+
+   Classes your JS will use:
+     .swatch-card                → createSwatchCard()
+       .contrast-row .pass|.fail
+   ============================================================ */
+
+:root {
+  --paper: #fafafa;
+  --card: #ffffff;
+  --border: #e5e5e5;
+  --ink: #18181b;
+  --muted: #71717a;
+  --violet: #7c3aed;
+  --violet-soft: #f3ebfe;
+  --green: #16a34a;
+  --red: #dc2626;
+  --radius: 14px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 { font-family: "Space Grotesk", "Segoe UI", sans-serif; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  padding: 12px clamp(16px, 4vw, 32px);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.back { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+.back:hover { color: var(--violet); }
+
+.request-line {
+  flex: 1 1 200px;
+  min-width: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--violet);
+  overflow-wrap: anywhere;
+}
+
+.tool-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--violet);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.wrap {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 30px clamp(16px, 4vw, 32px) 44px;
+}
+
+h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -0.5px; }
+
+.lede { color: var(--muted); margin: 8px 0 20px; font-size: 0.96rem; max-width: 60ch; }
+
+.search-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+input[type="color"] {
+  width: 46px;
+  height: 42px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+input[type="text"] {
+  flex: 1 1 140px;
+  min-width: 0;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+input[type="text"]:focus-visible { outline: none; border-color: var(--violet); }
+
+.btn-primary {
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--violet);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.status { min-height: 1.4em; margin: 14px 0 4px; font-size: 0.9rem; color: var(--muted); }
+.status.error   { color: var(--red); }
+.status.success { color: var(--green); }
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.swatch-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.swatch-card .block {
+  height: 90px;
+}
+
+.swatch-card .info { padding: 12px 14px; }
+
+.swatch-card .hex {
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.swatch-card .name {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 2px 0 10px;
+}
+
+.contrast-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  padding: 4px 0;
+}
+
+.contrast-row .swatch-preview {
+  padding: 2px 9px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.contrast-row.pass .swatch-preview { color: var(--green); }
+.contrast-row.fail .swatch-preview { color: var(--red); }
+
+.foot {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 480px) {
+  .search-row .btn-primary { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

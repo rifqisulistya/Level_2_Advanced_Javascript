@@ -1,0 +1,248 @@
+/* ============================================================
+   DOM MANIPULATION — LIVE CLASS  |  Stylesheet
+   ============================================================
+   This CSS is provided and explained below.
+   You do not need to edit anything here.
+   All your work happens in app.js.
+   ============================================================ */
+
+/* --- RESET & BASE --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body — light gray background, clean sans-serif font.
+   transition: background-color makes the dark mode switch smooth. */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #2d3748;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- DARK MODE ---
+   When JS adds class="dark" to <body>, these rules apply.
+   This is how .classList.toggle("dark") works — no inline styles needed. */
+body.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+body.dark .profile-card {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+body.dark .section-block {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+body.dark .site-header {
+  background-color: #2d3748;
+  border-bottom-color: #4a5568;
+}
+
+/* --- HEADER --- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Dark mode toggle button */
+#theme-btn {
+  background: none;
+  border: 1px solid #cbd5e0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+
+#theme-btn:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* --- MAIN LAYOUT --- */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+/* --- PROFILE CARD --- */
+.profile-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Avatar circle — JS sets the initials as textContent */
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.profile-card h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.profile-card p {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 4px;
+}
+
+/* Status badge — .badge.active turns it green, .badge.away turns it yellow */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 10px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.badge.active {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+.badge.away {
+  background-color: #fefcbf;
+  color: #744210;
+}
+
+.badge.offline {
+  background-color: #fed7d7;
+  color: #742a2a;
+}
+
+/* --- CONTENT SECTIONS --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-block {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.section-block h3 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  margin-bottom: 16px;
+}
+
+#user-bio {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: inherit;
+}
+
+/* --- STATS ROW --- */
+.stats-row {
+  display: flex;
+  gap: 24px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- SKILLS LIST --- */
+#skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Each skill tag — JS creates these with createElement */
+#skills-list li {
+  background-color: #ebf4ff;
+  color: #2b6cb0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+body.dark #skills-list li {
+  background-color: #2c5282;
+  color: #bee3f8;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    position: static;
+  }
+}

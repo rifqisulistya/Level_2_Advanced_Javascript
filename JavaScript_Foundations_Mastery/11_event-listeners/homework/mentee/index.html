@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listeners — Task Board</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🏗️  INTERACTIVE TASK BOARD
+  ============================================================
+  This is the Task Board from DOM Manipulation — now interactive.
+  The board structure is already built.
+  Your job: wire up all the user interactions in app.js.
+  ============================================================
+  -->
+
+  <body>
+
+    <header class="board-header">
+      <div class="header-left">
+        <h1 id="board-title">Sprint 12 — Task Board</h1>
+        <span id="task-count" class="count-badge">0 tasks</span>
+      </div>
+      <div class="header-right">
+        <span id="completed-count" class="stat-pill completed">✅ 0 done</span>
+        <span id="pending-count"   class="stat-pill pending">⏳ 0 pending</span>
+        <!-- Filter buttons — clicking filters visible tasks -->
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="high">🔴 High</button>
+        <button class="filter-btn" data-filter="medium">🟡 Medium</button>
+        <button class="filter-btn" data-filter="low">🟢 Low</button>
+      </div>
+    </header>
+
+    <!-- ADD TASK FORM -->
+    <div class="add-task-bar">
+      <input type="text"    id="task-title-input"    placeholder="Task title..."    />
+      <input type="text"    id="task-assignee-input" placeholder="Assignee..."      />
+      <select id="task-priority-input">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <select id="task-status-input">
+        <option value="todo" selected>To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <button id="add-task-btn">+ Add Task</button>
+    </div>
+
+    <!-- BOARD COLUMNS -->
+    <main class="board">
+      <div class="column" id="col-todo">
+        <h2 class="column-title">📋 To Do
+          <span class="col-count" id="count-todo">0</span>
+        </h2>
+        <ul class="task-list" id="list-todo"></ul>
+      </div>
+
+      <div class="column" id="col-inprogress">
+        <h2 class="column-title">⚡ In Progress
+          <span class="col-count" id="count-inprogress">0</span>
+        </h2>
+        <ul class="task-list" id="list-inprogress"></ul>
+      </div>
+
+      <div class="column" id="col-done">
+        <h2 class="column-title">✅ Done
+          <span class="col-count" id="count-done">0</span>
+        </h2>
+        <ul class="task-list" id="list-done"></ul>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

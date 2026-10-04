@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API — Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🌤️  WEATHER DASHBOARD
+  ============================================================
+  Fetch real weather data from Open-Meteo (free, no API key).
+  Render weather cards to the DOM.
+  Handle loading states and errors gracefully.
+  ============================================================
+  -->
+
+  <body>
+
+    <header class="site-header">
+      <div class="header-left">
+        <h1>🌤️ Weather Dashboard</h1>
+        <span class="api-badge">Open-Meteo API</span>
+      </div>
+    </header>
+
+    <!-- Add city form -->
+    <div class="controls-bar">
+      <select id="city-select">
+        <option value="">Select a city...</option>
+        <option value="new-york">New York</option>
+        <option value="london">London</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="sydney">Sydney</option>
+        <option value="paris">Paris</option>
+        <option value="dubai">Dubai</option>
+      </select>
+      <button id="fetch-weather-btn" class="btn-primary">Get Weather</button>
+      <button id="fetch-all-btn" class="btn-secondary">Fetch All Cities</button>
+      <button id="clear-btn" class="btn-danger">Clear All</button>
+    </div>
+
+    <!-- Status bar -->
+    <div id="status-bar" class="status-bar hidden">
+      <span id="status-message"></span>
+    </div>
+
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="spinner hidden">
+      <div class="spin"></div>
+      <p id="loading-message">Fetching weather...</p>
+    </div>
+
+    <!-- Error box -->
+    <div id="error-box" class="error-box hidden">
+      <p id="error-message">Something went wrong.</p>
+    </div>
+
+    <!-- Weather cards grid — JS renders here -->
+    <main id="weather-grid" class="weather-grid"></main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

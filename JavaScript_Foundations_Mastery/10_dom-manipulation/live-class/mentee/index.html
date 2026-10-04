@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation — Live Class</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🏗️  PAGE STRUCTURE — READ BEFORE YOU START
+  ============================================================
+  This is a User Profile Page.
+  Your JavaScript will select elements from this HTML and
+  update them dynamically — no hardcoding text here.
+
+  IMPORTANT: Do NOT add text content directly to these elements.
+  Leave them empty or with placeholder text where noted.
+  JavaScript will fill everything in.
+  ============================================================
+  -->
+
+  <body>
+    <!-- ✅ STEP 1 — HEADER
+         This header holds the page title and a dark mode toggle button.
+         The <h1> id="page-title" will be filled by JS.
+         The <button> id="theme-btn" triggers dark mode when clicked
+         (we'll add the click behavior in Event Listeners lesson —
+         for now just style it and log that it exists). -->
+    <header class="site-header">
+      <h1 id="page-title"></h1>
+      <button id="theme-btn">🌙 Dark Mode</button>
+    </header>
+
+    <!-- ✅ STEP 2 — MAIN LAYOUT
+         A two-column layout: profile card on the left, content on the right. -->
+    <main class="layout">
+      <!-- ✅ STEP 3 — PROFILE CARD
+           Leave all text content empty — JS fills it in. -->
+      <aside class="profile-card">
+        <div class="avatar" id="avatar">
+          <!-- JS will set the initials here -->
+        </div>
+        <h2 id="user-name"></h2>
+        <p id="user-title"></p>
+        <p id="user-location"></p>
+        <span id="status-badge" class="badge"></span>
+      </aside>
+
+      <!-- ✅ STEP 4 — CONTENT AREA -->
+      <section class="content">
+        <!-- Bio section -->
+        <div class="section-block" id="bio-block">
+          <h3>About</h3>
+          <p id="user-bio"></p>
+        </div>
+
+        <!-- Stats section -->
+        <div class="section-block" id="stats-block">
+          <h3>Stats</h3>
+          <div class="stats-row">
+            <div class="stat">
+              <span class="stat-number" id="stat-projects">0</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" id="stat-commits">0</span>
+              <span class="stat-label">Commits</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" id="stat-reviews">0</span>
+              <span class="stat-label">Reviews</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills section — JS will build this list dynamically -->
+        <div class="section-block" id="skills-block">
+          <h3>Skills</h3>
+          <!-- ✅ STEP 5 — SKILLS LIST
+               Create a <ul> with id="skills-list"
+               Leave it empty — JS will append <li> items to it. -->
+          <ul id="skills-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="debug.js"></script>
+  </body>
+</html>

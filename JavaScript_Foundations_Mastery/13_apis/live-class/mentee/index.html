@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APIs — Live Class</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!--
+  ============================================================
+  🌐  APIs — CONCEPT + EXPLORATION LESSON
+  ============================================================
+  This lesson is different from previous ones.
+  Instead of building a UI, you're exploring how APIs work.
+
+  LEFT PANEL  → Quick reference (concepts, methods, status codes)
+  RIGHT PANEL → JSON Explorer (paste real API responses here)
+  BOTTOM      → JS tasks (parsing and navigating JSON in code)
+  ============================================================
+  -->
+
+  <body>
+    <header class="site-header">
+      <h1>🌐 APIs — How the Web Talks to Itself</h1>
+      <span class="lesson-badge">Lesson 12</span>
+    </header>
+
+    <div class="explorer-layout">
+      <!-- LEFT: Quick Reference -->
+      <aside class="reference-panel">
+        <div class="ref-section">
+          <h2>HTTP Methods</h2>
+          <div class="method-grid">
+            <span class="method get">GET</span>
+            <span class="method-desc">Read / fetch data</span>
+            <span class="method post">POST</span>
+            <span class="method-desc">Create new data</span>
+            <span class="method put">PUT</span>
+            <span class="method-desc">Update existing data</span>
+            <span class="method delete">DELETE</span>
+            <span class="method-desc">Remove data</span>
+          </div>
+        </div>
+
+        <div class="ref-section">
+          <h2>Status Codes</h2>
+          <div class="status-list">
+            <div class="status ok"><span>200</span> OK — success</div>
+            <div class="status ok">
+              <span>201</span> Created — new resource made
+            </div>
+            <div class="status err">
+              <span>400</span> Bad Request — your data is wrong
+            </div>
+            <div class="status err">
+              <span>401</span> Unauthorized — not logged in
+            </div>
+            <div class="status err">
+              <span>403</span> Forbidden — logged in, no permission
+            </div>
+            <div class="status err">
+              <span>404</span> Not Found — resource doesn't exist
+            </div>
+            <div class="status err">
+              <span>500</span> Server Error — their problem, not yours
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-section">
+          <h2>Query Parameters</h2>
+          <div class="code-block">
+            <code>
+              /posts<span class="hl">?userId=1</span><br />
+              /weather<span class="hl">?lat=40&lon=-74</span><br />
+              /search<span class="hl">?q=cats&limit=10</span><br />
+              /posts<span class="hl">?_page=2&_limit=5</span>
+            </code>
+          </div>
+          <p class="ref-note">
+            Start with <strong>?</strong> — separate pairs with
+            <strong>&</strong>
+          </p>
+        </div>
+
+        <div class="ref-section">
+          <h2>Free APIs to Explore</h2>
+          <div class="api-links">
+            <a
+              href="https://jsonplaceholder.typicode.com/posts"
+              target="_blank"
+            >
+              JSONPlaceholder /posts ↗
+            </a>
+            <a
+              href="https://jsonplaceholder.typicode.com/posts?userId=1"
+              target="_blank"
+            >
+              /posts?userId=1 ↗
+            </a>
+            <a
+              href="https://jsonplaceholder.typicode.com/users/1"
+              target="_blank"
+            >
+              /users/1 ↗
+            </a>
+            <a
+              href="https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&current_weather=true"
+              target="_blank"
+            >
+              Open-Meteo weather ↗
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: JSON Explorer -->
+      <main class="explorer-panel">
+        <div class="explorer-header">
+          <h2>JSON Explorer</h2>
+          <p>
+            Click one of the API links on the left. Copy the response. Paste it
+            below.
+          </p>
+        </div>
+
+        <div class="explorer-body">
+          <textarea
+            id="json-input"
+            placeholder='Paste a JSON response here...
+{
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere ...",
+  "body": "quia et suscipit ..."
+}'
+          ></textarea>
+
+          <div class="explorer-actions">
+            <button id="parse-btn">🔍 Parse JSON</button>
+            <button id="clear-btn">✕ Clear</button>
+          </div>
+
+          <div id="output-panel" class="output-panel">
+            <p class="output-placeholder">Parsed output will appear here.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- BOTTOM: JS Tasks -->
+    <section class="tasks-section">
+      <h2>Open DevTools (F12 → Console) to see task output</h2>
+      <p>
+        All tasks below run in <strong>app.js</strong> — check the console for
+        results.
+      </p>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
