@@ -16,9 +16,13 @@ const fullName = `${firstname} ${lastName}`;
 console.log(fullName); // "undefined Rivera"
 
 // What's wrong ↓
+// -> Case sensitivity issue: the property is `firstName`, not `firstname`.
 
 // Your fix ↓
-
+// ->
+// const { firstName, lastName } = user;
+// const fullName = `${firstName} ${lastName}`;
+// console.log(fullName);
 
 // ----------------------------------------------------------
 // 🟡 DEBUG 2 — Medium
@@ -39,9 +43,17 @@ console.log(validateUsername("   "));    // ❌ should be invalid — logs "Vali
 console.log(validateUsername("alexdev")); // ✅ valid
 
 // What's wrong ↓
+// Truthiness of strings: spaces
 
 // Your fix ↓
 
+// function validateUsername(username) {
+//   // Check if username is falsy or becomes empty after removing whitespace
+//   if (!username || username.trim() === "") {
+//     return "Username is required";
+//   }
+//   return `Valid: ${username}`;
+// }
 
 // ----------------------------------------------------------
 // 🔴 DEBUG 3 — Hard
@@ -75,8 +87,35 @@ console.log(validateForm({ username: "alexdev", email: "a@b.com", age: "abc" }))
 console.log(validateForm({ username: "al",      email: "a@b.com", age: "28" }));
 // Bug 2: username "al" has length 2. Is 2 > 3?
 
+
 // Bug 1 ↓
+// What parseInt("abc") returns: It returns NaN (Not-a-Number).
+// Is it >= 13? No, any comparison involving NaN (like NaN >= 13) evaluates to false.
+// The underlying flaw: parseInt is also dangerously lenient—for example, parseInt("15abc") successfully returns 15, letting invalid trailing characters slip past validation. It lacks a check for Number.isNaN().
 
 // Bug 2 ↓
+// Is 2 > 3? No, 2 > 3 is false.
+// The underlying flaw: The code uses a strict greater-than operator (> 3), which means a 3-character username like "bob" would also fail validation (3 > 3 is false). If the minimum requirement is 3 characters, it needs to use >= 3.
 
 // Your fix ↓
+// function validateAge(ageStr) {
+//   // Number() rejects strings with trailing letters (returns NaN), unlike parseInt
+//   const age = Number(ageStr);
+//   return !Number.isNaN(age) && age >= 13 && age <= 120;
+// }
+
+// function validateForm(data) {
+//   // Changed > 3 to >= 3 so 3-character usernames are allowed
+//   const usernameOk = data.username && data.username.length >= 3;
+//   const emailOk    = data.email && data.email.includes("@");
+//   const ageOk      = validateAge(data.age);
+
+//   if (usernameOk && emailOk && ageOk) {
+//     return `Welcome, ${data.username}!`;
+//   }
+//   return "Form invalid";
+// }
+
+// // Now these handle edge cases correctly:
+// console.log(validateForm({ username: "alexdev", email: "a@b.com", age: "abc" })); // "Form invalid"
+// console.log(validateForm({ username: "bob",     email: "a@b.com", age: "28" }));  // "Welcome, bob!"
