@@ -345,11 +345,32 @@ console.log(validateSignUpForm(invalidForm));
 
 function cleanFormData(rawFormData) {
   // your code here
-  
+  username = rawFormData.username.trim().toLowerCase();
+  email = rawFormData.email.trim().toLowerCase();
+  age = rawFormData.age.trim();
+  password = rawFormData.password;
+
+  console.log(`Cleaned username: "${rawFormData.username}" → "${username}"`);
+  console.log(`Cleaned email: "${rawFormData.email}" → "${email}"`);
+  console.log(`Cleaned age: "${rawFormData.age}" → "${age}"`);
+  console.log(`Cleaned password: "${rawFormData.password}" → "${password}"`);
+
+  return {
+    username,
+    email,
+    age,
+    password
+  }
 }
 
 console.log("\n--- Task 7: Cleaning Form Data ---");
 // your code here
+console.log(cleanFormData({
+  username: "  AlexDev  ",
+  email:    "  ALEX@DEVSTUDIO.COM  ",
+  age:      "  28  ",
+  password: "SecurePass1!"
+}));
 
 // ----------------------------------------------------------
 // TASK 8 — Connect the dots: full pipeline
@@ -366,6 +387,17 @@ console.log("\n--- Task 7: Cleaning Form Data ---");
 
 console.log("\n--- Task 8: Full Pipeline ---");
 // your code here
+const rawData = {
+  username: "  AlexDev  ",
+  email:    "  ALEX@DEVSTUDIO.COM  ",
+  age:      "  28  ",
+  password: "SecurePass1!"
+};
+const cleaned = cleanFormData(rawData);
+const validation = validateSignUpForm(cleaned);
+Object.entries(validation.results).forEach(([field, result]) => {
+  console.log(formatValidationResult(field, result));
+});
 
 // ----------------------------------------------------------
 // ⭐ STRETCH GOAL — formatSummary
@@ -390,7 +422,14 @@ console.log("\n--- Task 8: Full Pipeline ---");
 
 function formatSummary(validationResult) {
   // your code here
+  const overallStatus = validationResult.valid ? "✅ Ready to submit" : "❌ Form has errors";
+  let summary = `=== Sign-Up Validation Report ===\nOverall: ${overallStatus}\n\n`;
+  Object.entries(validationResult.results).forEach(([field, result]) => {
+    summary += `${field.padEnd(10)} ${result.valid ? "✅" : "❌"} ${result.message}\n`;
+  });
+  return summary;
 }
-
 console.log("\n--- Stretch: formatSummary ---");
 // your code here
+console.log(formatSummary(validation));
+
