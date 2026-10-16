@@ -22,9 +22,14 @@ if (score = passing) {
 }
 
 // What's wrong ↓
-
+// >=
 // Your fix ↓
 
+// if (score >= passing) {
+//   console.log("Pass ✅");
+// } else {
+//   console.log("Fail ❌");
+// }
 
 // ----------------------------------------------------------
 // 🟡 DEBUG 2 — Medium
@@ -44,9 +49,13 @@ if (height >= minHeight && withAdult) {
 }
 
 // What's wrong ↓
-
+// && should be ||
 // Your fix ↓
-
+// if (height >= minHeight && withAdult) {
+//   console.log("🎢 Enjoy the ride!");
+// } else {
+//   console.log("🚫 Sorry, you cannot ride.");
+// }
 
 // ----------------------------------------------------------
 // 🔴 DEBUG 3 — Hard
@@ -69,7 +78,18 @@ if (orderTotal < 50) {
 }
 
 // Bug 1 ↓
+// >= 50 & >= 100 should be else if
 
 // Bug 2 ↓
+// var should be const
 
 // Your fix ↓
+// const orderTotal = 85;
+
+// if (orderTotal >= 100) {
+//   console.log("🚀 Free express shipping!");
+// } else if (orderTotal >= 50) {
+//   console.log("🚚 Standard shipping: $5");
+// } else {
+//   console.log("📦 Economy shipping: $9.99");
+// }

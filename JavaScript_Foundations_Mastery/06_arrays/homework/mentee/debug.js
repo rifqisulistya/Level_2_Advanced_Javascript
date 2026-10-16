@@ -17,8 +17,9 @@ const middleIndex = letters.length / 2;
 console.log(letters[middleIndex]);
 
 // What's wrong ↓
-
+// letters.length / 2 returns a float (2.5) which is not a valid index for the array, resulting in undefined being logged.
 // Your fix ↓
+// const middleIndex = Math.floor(letters.length / 2);
 
 
 // ----------------------------------------------------------
@@ -37,9 +38,9 @@ for (let i = 0; i <= prices.length; i++) {
 console.log("Total: $" + total);
 
 // What's wrong ↓
-
+// The loop condition uses <= which causes it to access an index (prices[4]) that is out of bounds, resulting in undefined being added to total, which leads to NaN.
 // Your fix ↓
-
+// Change the loop condition to < so that it only iterates over valid indices of the array.
 
 // ----------------------------------------------------------
 // 🔴 DEBUG 3 — Hard
@@ -64,7 +65,9 @@ for (let i = 0; i < scores.length; i++) {
 console.log("Winner: " + names[topIndex] + " with " + topScore);
 
 // Bug 1 ↓
-
+// The initial value of topIndex is set to 1, which assumes that the second student (Bob) is the top scorer. This is incorrect because we should start with the first student (index 0) as the initial top scorer.
 // Bug 2 ↓
-
+// The initial value of topScore is set to 0, which assumes that no student has a score of 0 or below. This is incorrect because we should initialize it with the first student's score.
 // Your fix ↓
+// let topIndex = 0;
+// let topScore = scores[0];

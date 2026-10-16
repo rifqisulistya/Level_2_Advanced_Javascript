@@ -34,8 +34,12 @@ while (i > 0) {
 }
 
 // What's wrong ↓
-
+// Never ending loop, no decrement of i.
 // Your fix ↓
+while (i > 0) {
+  console.log(i);
+    i--;
+}
 
 
 // ----------------------------------------------------------
@@ -53,5 +57,9 @@ for (let i = 1; i <= 5; i++) {
 console.log("Done!");
 
 // What's wrong ↓
-
+// The `break` statement is placed before `console.log(i)`, causing the loop to exit immediately.
 // Your fix ↓
+// for (let i = 1; i <= 5; i++) {
+//   console.log(i);
+// }
+// console.log("Done!");
